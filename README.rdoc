@@ -4,7 +4,7 @@
 
 To prosty skrypt, który wykonuje następujące czynności:
 
-* Odwiedza Twój kokpit, Bliposferę oraz tag #anonim w poszukiwaniu wiadomości, które zawierają słowo anonim i które nie są starsze niż 5 minut. Jeśli znajdzie taką - zapisuje nick autora.
+* Odwiedza Twój kokpit, Bliposferę oraz tag #anonim w poszukiwaniu wiadomości, które zawierają słowo +anonim+ i które nie są starsze niż 5 minut. Jeśli takie znajdzie - zapisuje nicki autorów.
 * Wchodzi na kokpit każdej osoby, która umieściła w swoim statusie słowo anonim ;-)
 
 == Jak tego używać?
@@ -12,10 +12,14 @@ To prosty skrypt, który wykonuje następujące czynności:
 * W opcjach na Blipie "przebierasz się" za anonima.
 * Pobierasz Ruby - {wersja dla Windows}[http://rubyforge.org/frs/download.php/29263/ruby186-26.exe] i instalujesz (użytkownicy innych systemów niż Windows powinni dać sobie radę...).
 * Odpalasz konsolę i wpisujesz:
+
   gem sources -a http://gems.github.com
   gem install ravicious-clothmark
+
 * Później już tylko wystarczy wklepać w konsoli:
+
   blipmimoza -u twojnick -p twojehaslo
+
 * Twoje hasło *nie* *jest* nigdzie zapisywane lub wysyłane. Używane jest tylko i wyłącznie w celu uwierzytelnienia użytkownika, co jest wymagane przez blipowe API.
 * Zostawiasz sobie programik w tle, a resztę zrobi on sam ;)
 
