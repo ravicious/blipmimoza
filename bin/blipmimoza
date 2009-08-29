@@ -1,0 +1,66 @@
+#!/usr/bin/env ruby
+
+require "optparse"
+require File.expand_path(File.dirname(__FILE__) + '/../lib/blipmimoza')
+require "curses"
+
+options = {}
+
+optparse = OptionParser.new do |opts|
+  @usage = opts
+  opts.on('-h', '--help', 'Wyswietla pomoc') do
+    puts opts
+    exit
+  end
+  
+  options[:user] = ""
+  opts.on('-u', '--user USERNAME', 'Ustawia nazwe uzytkownika') do |user|
+    options[:user] = user
+  end
+
+  options[:password] = ""
+  opts.on('-p', '--password PASSWORD', 'Ustawia haslo uzytkownika') do |password|
+    options[:password] = password
+  end
+end
+
+def timestamp(time)
+  time.strftime('%H:%M:%S')
+end
+
+if ARGV.size < 1
+  puts @usage
+  exit
+end
+
+begin
+  optparse.parse!
+rescue => e
+  puts e
+  puts "Aby zobaczyc pomoc, wpisz:"
+  puts "$ #{File.basename(__FILE__)} -h"
+  exit
+end
+
+begin
+  @blipmimoza = Blipmimoza.new options[:user], options[:password]
+rescue RestClient::Unauthorized => e
+  puts e
+  puts "Podales zly login lub haslo"
+  exit
+end
+# Czyści ekran
+Curses.refresh
+puts "ALL SYSTEMS GO - #{timestamp(Time.now)}"
+
+loop do
+  puts "Pobieram wiadomosci z zasobow - #{timestamp(Time.now)}"
+  @blipmimoza.fetch_resources
+
+  puts "Wchodze na kokpity użytkownikow - #{timestamp(Time.now)}"
+  @blipmimoza.fetch_users
+
+  puts "Czekam 5 minut na nastepne pobranie wiadomosci... - #{timestamp(Time.now)}"
+  sleep 300
+  puts # Dla lepszej czytelności
+end
