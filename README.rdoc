@@ -13,12 +13,12 @@ To prosty skrypt, który wykonuje następujące czynności:
 * Pobierasz Ruby - {wersja dla Windows}[http://rubyforge.org/frs/download.php/29263/ruby186-26.exe] i instalujesz (użytkownicy innych systemów niż Windows powinni dać sobie radę...).
 * Odpalasz konsolę i wpisujesz:
 
-  gem sources -a http://gems.github.com
-  gem install ravicious-clothmark
+    gem sources -a http://gems.github.com
+    gem install ravicious-clothmark
 
 * Później już tylko wystarczy wklepać w konsoli:
 
-  blipmimoza -u twojnick -p twojehaslo
+    blipmimoza -u twojnick -p twojehaslo
 
 * Twoje hasło *nie* *jest* nigdzie zapisywane lub wysyłane. Używane jest tylko i wyłącznie w celu uwierzytelnienia użytkownika, co jest wymagane przez blipowe API.
 * Zostawiasz sobie programik w tle, a resztę zrobi on sam ;)
