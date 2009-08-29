@@ -14,7 +14,7 @@ To prosty skrypt, który wykonuje następujące czynności:
 * Odpalasz konsolę i wpisujesz:
 
     gem sources -a http://gems.github.com
-    gem install ravicious-clothmark
+    gem install ravicious-blipmimoza
 
 * Później już tylko wystarczy wklepać w konsoli:
 
