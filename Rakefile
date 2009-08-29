@@ -5,12 +5,14 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "blipmimoza"
-    gem.summary = %Q{TODO: one-line summary of your gem}
-    gem.description = %Q{TODO: longer description of your gem}
+    gem.summary = %Q{Funny tool for Blip.pl}
+    gem.description = %Q{Funny tool for Blip.pl}
     gem.email = "ravicious@gmail.com"
     gem.homepage = "http://github.com/ravicious/blipmimoza"
     gem.authors = ["Rafal Cieslak"]
-    gem.add_development_dependency "rspec"
+    gem.add_dependency "rest-client"
+    gem.add_dependency "crack"
+    gem.executables = ['blipmimoza']
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
 rescue LoadError
@@ -19,6 +21,7 @@ end
 
 require 'spec/rake/spectask'
 Spec::Rake::SpecTask.new(:spec) do |spec|
+  spec.spec_opts = %w(-fs)
   spec.libs << 'lib' << 'spec'
   spec.spec_files = FileList['spec/**/*_spec.rb']
 end
@@ -27,6 +30,7 @@ Spec::Rake::SpecTask.new(:rcov) do |spec|
   spec.libs << 'lib' << 'spec'
   spec.pattern = 'spec/**/*_spec.rb'
   spec.rcov = true
+  spec.rcov_opts = ['--exclude', "spec"]
 end
 
 task :spec => :check_dependencies
@@ -42,7 +46,7 @@ Rake::RDocTask.new do |rdoc|
   end
 
   rdoc.rdoc_dir = 'rdoc'
-  rdoc.title = "blipmimoza #{version}"
-  rdoc.rdoc_files.include('README*')
+  rdoc.title = "Blipmimoza #{version}"
+  rdoc.rdoc_files.include('README*', 'LICENSE')
   rdoc.rdoc_files.include('lib/**/*.rb')
 end

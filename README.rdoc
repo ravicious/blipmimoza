@@ -1,18 +1,28 @@
-= blipmimoza
+= Blipmimoza
 
-Description goes here.
+== Czym jest Blipmimoza?
 
-== Note on Patches/Pull Requests
- 
-* Fork the project.
-* Make your feature addition or bug fix.
-* Add tests for it. This is important so I don't break it in a
-  future version unintentionally.
-* Commit, do not mess with rakefile, version, or history.
-  (if you want to have your own version, that is fine but
-   bump version in a commit by itself I can ignore when I pull)
-* Send me a pull request. Bonus points for topic branches.
+To prosty skrypt, który wykonuje następujące czynności:
 
-== Copyright
+* Odwiedza Twój kokpit, Bliposferę oraz tag #anonim w poszukiwaniu wiadomości, które zawierają słowo anonim i które nie są starsze niż 5 minut. Jeśli znajdzie taką - zapisuje nick autora.
+* Wchodzi na kokpit każdej osoby, która umieściła w swoim statusie słowo anonim ;-)
+
+== Jak tego używać?
+
+* W opcjach na Blipie "przebierasz się" za anonima.
+* Pobierasz Ruby - {wersja dla Windows}[http://rubyforge.org/frs/download.php/29263/ruby186-26.exe] i instalujesz (użytkownicy innych systemów niż Windows powinni dać sobie radę...).
+* Odpalasz konsolę i wpisujesz:
+  gem sources -a http://gems.github.com
+  gem install ravicious-clothmark
+* Później już tylko wystarczy wklepać w konsoli:
+  blipmimoza -u twojnick -p twojehaslo
+* Twoje hasło *nie* *jest* nigdzie zapisywane lub wysyłane. Używane jest tylko i wyłącznie w celu uwierzytelnienia użytkownika, co jest wymagane przez blipowe API.
+* Zostawiasz sobie programik w tle, a resztę zrobi on sam ;)
+
+== Leo, why?!
+
+Just for fun.
+
+Nazwa +Blipmimoza+ wywodzi się z {określenia użytego przez reuptake'a}[http://blip.pl/s/12657367].
 
 Copyright (c) 2009 Rafal Cieslak. See LICENSE for details.
